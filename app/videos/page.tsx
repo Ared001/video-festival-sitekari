@@ -1,54 +1,29 @@
-import VideoCard from "@/components/VideoCard"
+import VideoCard from "@/components/video/VideoCard"
 
-export default function VideosPage() {
+async function getVideos() {
+  const res = await fetch("http://localhost:3000/api/videos", {
+    cache: "no-store"
+  })
+  return res.json()
+}
 
-  const videos = [
-    {
-      title: "【東方MV】Help me, ERINNNNNN!!【ビートまりお】",
-      author: "ビートまりお",
-      videoId: "sm43751325"
-    },
-    {
-      title: "【東方】Bad Apple!!　ＰＶ【影絵】",
-      author: "あにら",
-      videoId: "sm8628149"
-    },
-    {
-      title: "DECO*27 - テレパシ feat. 初音ミク",
-      author: "DECO*27",
-      videoId: "sm44661043"
-    },
-     {
-      title: "新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師",
-      author: "中の",
-      videoId: "sm9"
-    },
-    {
-      title: "DECO*27 - 愛言葉V feat. 初音ミク",
-      author: "DECO*27",
-      videoId: "sm45938997"
-    },
-
-  ]
+export default async function VideosPage() {
+  const videos = await getVideos()
 
   return (
-    <main>
+    <main style={{ padding: "40px" }}>
+      <h1 style={{ marginBottom: "30px" }}>動画一覧</h1>
 
-      <h1>投稿作品一覧</h1>
-
-      <div
-      style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(260px,1fr))",
-      gap: "24px"
-       }}
-       >
-        
-        {videos.map(video => (
-          <VideoCard key={video.videoId} video={video} />
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+        gap: "20px"
+      }}>
+        {videos.map((video: any, index: number) => (
+          <VideoCard key={index} video={video} />
         ))}
       </div>
-
     </main>
   )
 }
+

@@ -3,10 +3,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-<<<<<<< HEAD
-
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-  <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -62,19 +60,32 @@ export default function Home() {
             Documentation
           </a>
         </div>
+
+        
+        <div className="mt-16 text-center">
+          <h1>動画投稿祭サイト</h1>
+          <p>このページはテストページです</p>
+          <Link href="/videos">
+            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+              投稿作品一覧
+            </button>
+          </Link>
+          
+          <Link href="/note">
+            <button className= "mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+              note記事一覧
+            </button>
+          </Link>
+
+          <Link href="/introduction">
+            <button className= "mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+              紹介配信一覧
+            </button>
+          </Link>
+        </div>
+
       </main>
     </div>
   );
-=======
-    <main>
-      <h1>動画投稿祭サイト</h1>
-      <p>このページはテストページです</p>
-
-      <Link href="/videos">
-        <button>投稿作品一覧</button>
-      </Link>
-
-    </main>
-  )
->>>>>>> 2e2f7f2 (first commit)
 }
+
